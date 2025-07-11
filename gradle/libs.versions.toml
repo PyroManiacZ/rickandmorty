@@ -1,5 +1,6 @@
 [versions]
 agp = "8.11.1"
+converterKotlinxSerialization = "0.8.0"
 kotlin = "2.2.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -15,16 +16,19 @@ ksp = "2.2.0-2.0.2"
 okhttp = "5.1.0"
 okhttpLogging = "5.1.0"
 kotlinxSerializationJson = "1.9.0"
+retrofit = "3.0.0"
 room = "2.7.2"
 hilt = "2.56.2"
 navigationCompose = "2.9.1"
 compose = "1.8.3"
 coil = "2.7.0"
-accompanist = "0.36.0"
+accompanist = "0.37.3"
 hiltNavigationCompose = "1.2.0"
+converterKotlinxSerialization = "0.8.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+converter-kotlinx-serialization = { module = "com.jakewharton.retrofit2:converter-kotlinx-serialization", version.ref = "converterKotlinxSerialization" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -53,6 +57,7 @@ androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref 
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 accompanist-shimmer = { group = "com.google.accompanist", name = "accompanist-shimmer", version.ref = "accompanist" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 
 
