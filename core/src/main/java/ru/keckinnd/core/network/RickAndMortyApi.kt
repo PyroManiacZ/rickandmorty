@@ -1,20 +1,30 @@
 package ru.keckinnd.core.network
 
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 import ru.keckinnd.core.network.dto.CharacterDto
 import ru.keckinnd.core.network.dto.CharactersPageDto
 
-
 interface RickAndMortyApi {
+
+    @GET("character")
     suspend fun getCharacters(
-        page: Int = 1,
-        name: String? = null,
-        status: String? = null,
-        species: String? = null,
-        type: String? = null,
-        gender: String? = null
+        @Query("page") page: Int = 1,
+        @Query("name") name: String? = null,
+        @Query("status") status: String? = null,
+        @Query("species") species: String? = null,
+        @Query("type") type: String? = null,
+        @Query("gender") gender: String? = null
     ): CharactersPageDto
 
-    suspend fun getCharacterById(id: Int): CharacterDto
+    @GET("character/{id}")
+    suspend fun getCharacterById(
+        @Path("id") id: Int
+    ): CharacterDto
 
-    suspend fun getCharactersByIds(ids: List<Int>): List<CharacterDto>
+    @GET("character/{ids}")
+    suspend fun getCharactersByIds(
+        @Path("ids") ids: String
+    ): List<CharacterDto>
 }

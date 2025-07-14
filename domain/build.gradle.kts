@@ -9,7 +9,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 25
     }
 
     compileOptions {
@@ -21,4 +21,28 @@ android {
             jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
         }
     }
+}
+
+dependencies {
+    implementation(libs.okhttp)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    implementation(libs.androidx.core.ktx)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+    // Kotlinx Serialization JSON
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.kotlinx.serialization)
+    implementation(libs.okhttp.logging)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.javax.inject)
+
 }

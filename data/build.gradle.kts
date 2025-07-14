@@ -9,7 +9,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 25
     }
 
     compileOptions {
@@ -25,7 +25,29 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":domain"))
+
+
+    implementation(libs.androidx.core.ktx)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    implementation(libs.okhttp.logging)
     ksp(libs.room.compiler)
+
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.android)
+
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.converter.kotlinx.serialization)
+
+    implementation(libs.retrofit)
+
+    implementation(libs.javax.inject)
 }

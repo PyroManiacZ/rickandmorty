@@ -1,4 +1,4 @@
-package ru.keckinnd.rickandmorty.ui.theme
+package ru.keckinnd.core.ui
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

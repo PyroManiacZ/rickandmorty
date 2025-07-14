@@ -9,7 +9,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 25
     }
 
     compileOptions {
@@ -25,6 +25,9 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":domain"))
+
     implementation(libs.okhttp)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.room.runtime)
@@ -36,7 +39,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Kotlinx Serialization JSON
     implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.retrofit)
@@ -45,5 +47,9 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.javax.inject)
+
+    implementation(libs.androidx.material3.v121)
+    implementation(libs.androidx.ui.v161)
+    implementation(libs.ui.tooling.preview)
 
 }
