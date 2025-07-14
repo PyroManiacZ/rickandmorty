@@ -1,4 +1,5 @@
 [versions]
+converterKotlinxSerialization = "0.10.0"
 kotlin = "2.2.0"
 ksp = "2.2.0-2.0.2"
 agp = "8.11.1"
@@ -52,6 +53,8 @@ androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", v
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+foundation = { module = "androidx.compose.foundation:foundation" }
+material3 = { module = "androidx.compose.material3:material3" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -76,6 +79,7 @@ javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInjec
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+ui = { module = "androidx.compose.ui:ui" }
 
 
 
@@ -86,3 +90,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

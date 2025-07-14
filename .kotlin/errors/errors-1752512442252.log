@@ -1,0 +1,451 @@
+kotlin version: 2.2.0
+error message: java.lang.RuntimeException: Exception while generating code for:
+FUN name:RickAndMortyTheme visibility:public modality:FINAL returnType:kotlin.Unit
+  VALUE_PARAMETER kind:Regular name:darkTheme index:0 type:kotlin.Boolean
+    EXPRESSION_BODY
+      ERROR_EXPR 'Default Stub' type=kotlin.Boolean
+  VALUE_PARAMETER kind:Regular name:content index:1 type:@[Composable] kotlin.Function0<kotlin.Unit>
+  annotations:
+    OptIn(markerClass = [CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB ANNOTATION_CLASS name:ExperimentalMaterial3Api modality:OPEN visibility:public superTypes:[kotlin.Annotation]' type=kotlin.reflect.KClass<androidx.compose.material3.ExperimentalMaterial3Api>] type=kotlin.Array<out kotlin.reflect.KClass<out kotlin.Annotation>> varargElementType=kotlin.reflect.KClass<out kotlin.Annotation>)
+    Composable
+  BLOCK_BODY
+    VAR name:context type:android.content.Context [val]
+      CALL 'public final fun <get-current> (): T of androidx.compose.runtime.CompositionLocal [inline] declared in androidx.compose.runtime.CompositionLocal' type=android.content.Context origin=GET_PROPERTY
+        ARG <this>: TYPE_OP type=androidx.compose.runtime.CompositionLocal<T of androidx.compose.runtime.CompositionLocal> origin=IMPLICIT_CAST typeOperand=androidx.compose.runtime.CompositionLocal<T of androidx.compose.runtime.CompositionLocal>
+          CALL 'public final fun <get-LocalContext> (): androidx.compose.runtime.ProvidableCompositionLocal<android.content.Context> declared in androidx.compose.ui.platform.AndroidCompositionLocals_androidKt' type=androidx.compose.runtime.ProvidableCompositionLocal<android.content.Context> origin=GET_PROPERTY
+    VAR name:colorScheme type:androidx.compose.material3.ColorScheme [val]
+      WHEN type=androidx.compose.material3.ColorScheme origin=WHEN
+        BRANCH
+          if: CALL 'public final fun greaterOrEqual (arg0: kotlin.Int, arg1: kotlin.Int): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=GTEQ
+            ARG arg0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:SDK_INT type:kotlin.Int visibility:public [final,static] declared in android.os.Build.VERSION' type=kotlin.Int superQualifierSymbol=android.os.Build.VERSION origin=null
+            ARG arg1: CONST Int type=kotlin.Int value=31
+          then: WHEN type=androidx.compose.material3.ColorScheme origin=IF
+            BRANCH
+              if: GET_VAR 'darkTheme: kotlin.Boolean declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=kotlin.Boolean origin=null
+              then: BLOCK type=androidx.compose.material3.ColorScheme origin=null
+                CALL 'public final fun dynamicDarkColorScheme (context: android.content.Context): androidx.compose.material3.ColorScheme declared in androidx.compose.material3.DynamicTonalPaletteKt' type=androidx.compose.material3.ColorScheme origin=null
+                  ARG context: GET_VAR 'val context: android.content.Context [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=android.content.Context origin=null
+            BRANCH
+              if: CONST Boolean type=kotlin.Boolean value=true
+              then: BLOCK type=androidx.compose.material3.ColorScheme origin=null
+                CALL 'public final fun dynamicLightColorScheme (context: android.content.Context): androidx.compose.material3.ColorScheme declared in androidx.compose.material3.DynamicTonalPaletteKt' type=androidx.compose.material3.ColorScheme origin=null
+                  ARG context: GET_VAR 'val context: android.content.Context [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=android.content.Context origin=null
+        BRANCH
+          if: GET_VAR 'darkTheme: kotlin.Boolean declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=kotlin.Boolean origin=null
+          then: BLOCK type=androidx.compose.material3.ColorScheme origin=ARGUMENTS_REORDERING_FOR_CALL
+            VAR IR_TEMPORARY_VARIABLE name:tmp0_primary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-PrimaryDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp1_secondary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-SecondaryDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp2_tertiary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-TertiaryDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp3_background type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-BackgroundDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp4_surface type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-SurfaceDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp5_surfaceVariant type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-SurfaceVariantDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp6_onPrimary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnPrimaryDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp7_onSecondary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnSecondaryDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp8_onBackground type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnBackgroundDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp9_onSurface type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnSurfaceDark> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            CALL 'public final fun darkColorScheme-C-Xl9yA$default (primary: androidx.compose.ui.graphics.Color, onPrimary: androidx.compose.ui.graphics.Color, primaryContainer: androidx.compose.ui.graphics.Color, onPrimaryContainer: androidx.compose.ui.graphics.Color, inversePrimary: androidx.compose.ui.graphics.Color, secondary: androidx.compose.ui.graphics.Color, onSecondary: androidx.compose.ui.graphics.Color, secondaryContainer: androidx.compose.ui.graphics.Color, onSecondaryContainer: androidx.compose.ui.graphics.Color, tertiary: androidx.compose.ui.graphics.Color, onTertiary: androidx.compose.ui.graphics.Color, tertiaryContainer: androidx.compose.ui.graphics.Color, onTertiaryContainer: androidx.compose.ui.graphics.Color, background: androidx.compose.ui.graphics.Color, onBackground: androidx.compose.ui.graphics.Color, surface: androidx.compose.ui.graphics.Color, onSurface: androidx.compose.ui.graphics.Color, surfaceVariant: androidx.compose.ui.graphics.Color, onSurfaceVariant: androidx.compose.ui.graphics.Color, surfaceTint: androidx.compose.ui.graphics.Color, inverseSurface: androidx.compose.ui.graphics.Color, inverseOnSurface: androidx.compose.ui.graphics.Color, error: androidx.compose.ui.graphics.Color, onError: androidx.compose.ui.graphics.Color, errorContainer: androidx.compose.ui.graphics.Color, onErrorContainer: androidx.compose.ui.graphics.Color, outline: androidx.compose.ui.graphics.Color, outlineVariant: androidx.compose.ui.graphics.Color, scrim: androidx.compose.ui.graphics.Color, surfaceBright: androidx.compose.ui.graphics.Color, surfaceContainer: androidx.compose.ui.graphics.Color, surfaceContainerHigh: androidx.compose.ui.graphics.Color, surfaceContainerHighest: androidx.compose.ui.graphics.Color, surfaceContainerLow: androidx.compose.ui.graphics.Color, surfaceContainerLowest: androidx.compose.ui.graphics.Color, surfaceDim: androidx.compose.ui.graphics.Color, $mask0: kotlin.Int, $mask1: kotlin.Int, $handler: kotlin.Any?): androidx.compose.material3.ColorScheme declared in androidx.compose.material3.ColorSchemeKt' type=androidx.compose.material3.ColorScheme origin=DEFAULT_DISPATCH_CALL
+              ARG primary: GET_VAR 'val tmp0_primary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onPrimary: GET_VAR 'val tmp6_onPrimary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG primaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onPrimaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG inversePrimary: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG secondary: GET_VAR 'val tmp1_secondary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onSecondary: GET_VAR 'val tmp7_onSecondary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG secondaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onSecondaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG tertiary: GET_VAR 'val tmp2_tertiary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onTertiary: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG tertiaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onTertiaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG background: GET_VAR 'val tmp3_background: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onBackground: GET_VAR 'val tmp8_onBackground: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG surface: GET_VAR 'val tmp4_surface: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onSurface: GET_VAR 'val tmp9_onSurface: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG surfaceVariant: GET_VAR 'val tmp5_surfaceVariant: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onSurfaceVariant: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceTint: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG inverseSurface: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG inverseOnSurface: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG error: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onError: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG errorContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onErrorContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG outline: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG outlineVariant: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG scrim: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceBright: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerHigh: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerHighest: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerLow: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerLowest: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceDim: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG $mask0: CONST Int type=kotlin.Int value=-254564
+              ARG $mask1: CONST Int type=kotlin.Int value=15
+              ARG $handler: CONST Null type=kotlin.Any? value=null
+        BRANCH
+          if: CONST Boolean type=kotlin.Boolean value=true
+          then: BLOCK type=androidx.compose.material3.ColorScheme origin=ARGUMENTS_REORDERING_FOR_CALL
+            VAR IR_TEMPORARY_VARIABLE name:tmp10_primary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-PrimaryLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp11_secondary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-SecondaryLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp12_tertiary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-TertiaryLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp13_background type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-BackgroundLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp14_surface type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-SurfaceLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp15_surfaceVariant type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-SurfaceVariantLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp16_onPrimary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnPrimaryLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp17_onSecondary type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnSecondaryLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp18_onBackground type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnBackgroundLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            VAR IR_TEMPORARY_VARIABLE name:tmp19_onSurface type:androidx.compose.ui.graphics.Color [val]
+              CALL 'public final fun <get-OnSurfaceLight> (): androidx.compose.ui.graphics.Color declared in ru.keckinnd.core.ui.ColorKt' type=androidx.compose.ui.graphics.Color origin=GET_PROPERTY
+            CALL 'public final fun lightColorScheme-C-Xl9yA$default (primary: androidx.compose.ui.graphics.Color, onPrimary: androidx.compose.ui.graphics.Color, primaryContainer: androidx.compose.ui.graphics.Color, onPrimaryContainer: androidx.compose.ui.graphics.Color, inversePrimary: androidx.compose.ui.graphics.Color, secondary: androidx.compose.ui.graphics.Color, onSecondary: androidx.compose.ui.graphics.Color, secondaryContainer: androidx.compose.ui.graphics.Color, onSecondaryContainer: androidx.compose.ui.graphics.Color, tertiary: androidx.compose.ui.graphics.Color, onTertiary: androidx.compose.ui.graphics.Color, tertiaryContainer: androidx.compose.ui.graphics.Color, onTertiaryContainer: androidx.compose.ui.graphics.Color, background: androidx.compose.ui.graphics.Color, onBackground: androidx.compose.ui.graphics.Color, surface: androidx.compose.ui.graphics.Color, onSurface: androidx.compose.ui.graphics.Color, surfaceVariant: androidx.compose.ui.graphics.Color, onSurfaceVariant: androidx.compose.ui.graphics.Color, surfaceTint: androidx.compose.ui.graphics.Color, inverseSurface: androidx.compose.ui.graphics.Color, inverseOnSurface: androidx.compose.ui.graphics.Color, error: androidx.compose.ui.graphics.Color, onError: androidx.compose.ui.graphics.Color, errorContainer: androidx.compose.ui.graphics.Color, onErrorContainer: androidx.compose.ui.graphics.Color, outline: androidx.compose.ui.graphics.Color, outlineVariant: androidx.compose.ui.graphics.Color, scrim: androidx.compose.ui.graphics.Color, surfaceBright: androidx.compose.ui.graphics.Color, surfaceContainer: androidx.compose.ui.graphics.Color, surfaceContainerHigh: androidx.compose.ui.graphics.Color, surfaceContainerHighest: androidx.compose.ui.graphics.Color, surfaceContainerLow: androidx.compose.ui.graphics.Color, surfaceContainerLowest: androidx.compose.ui.graphics.Color, surfaceDim: androidx.compose.ui.graphics.Color, $mask0: kotlin.Int, $mask1: kotlin.Int, $handler: kotlin.Any?): androidx.compose.material3.ColorScheme declared in androidx.compose.material3.ColorSchemeKt' type=androidx.compose.material3.ColorScheme origin=DEFAULT_DISPATCH_CALL
+              ARG primary: GET_VAR 'val tmp10_primary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onPrimary: GET_VAR 'val tmp16_onPrimary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG primaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onPrimaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG inversePrimary: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG secondary: GET_VAR 'val tmp11_secondary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onSecondary: GET_VAR 'val tmp17_onSecondary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG secondaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onSecondaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG tertiary: GET_VAR 'val tmp12_tertiary: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onTertiary: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG tertiaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onTertiaryContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG background: GET_VAR 'val tmp13_background: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onBackground: GET_VAR 'val tmp18_onBackground: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG surface: GET_VAR 'val tmp14_surface: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onSurface: GET_VAR 'val tmp19_onSurface: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG surfaceVariant: GET_VAR 'val tmp15_surfaceVariant: androidx.compose.ui.graphics.Color [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.ui.graphics.Color origin=null
+              ARG onSurfaceVariant: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceTint: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG inverseSurface: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG inverseOnSurface: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG error: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onError: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG errorContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG onErrorContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG outline: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG outlineVariant: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG scrim: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceBright: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainer: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerHigh: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerHighest: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerLow: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceContainerLowest: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG surfaceDim: COMPOSITE type=androidx.compose.ui.graphics.Color origin=DEFAULT_VALUE
+                CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=androidx.compose.ui.graphics.Color origin=null
+                  TYPE_ARG T: kotlin.Long
+                  TYPE_ARG R: androidx.compose.ui.graphics.Color
+                  ARG v: CONST Long type=kotlin.Long value=0
+              ARG $mask0: CONST Int type=kotlin.Int value=-254564
+              ARG $mask1: CONST Int type=kotlin.Int value=15
+              ARG $handler: CONST Null type=kotlin.Any? value=null
+    CALL 'public final fun MaterialTheme$default (colorScheme: androidx.compose.material3.ColorScheme?, shapes: androidx.compose.material3.Shapes?, typography: androidx.compose.material3.Typography?, content: @[Composable] kotlin.Function0<kotlin.Unit>, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.Unit declared in androidx.compose.material3.MaterialThemeKt' type=kotlin.Unit origin=DEFAULT_DISPATCH_CALL
+      ARG colorScheme: GET_VAR 'val colorScheme: androidx.compose.material3.ColorScheme [val] declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=androidx.compose.material3.ColorScheme origin=null
+      ARG shapes: COMPOSITE type=androidx.compose.material3.Shapes? origin=DEFAULT_VALUE
+        CONST Null type=androidx.compose.material3.Shapes? value=null
+      ARG typography: CALL 'public final fun <get-Typography> (): androidx.compose.material3.Typography declared in ru.keckinnd.core.ui.TypeKt' type=androidx.compose.material3.Typography origin=GET_PROPERTY
+      ARG content: GET_VAR 'content: @[Composable] kotlin.Function0<kotlin.Unit> declared in ru.keckinnd.core.ui.RickAndMortyThemeKt.RickAndMortyTheme' type=@[Composable] kotlin.Function0<kotlin.Unit> origin=null
+      ARG $mask0: CONST Int type=kotlin.Int value=2
+      ARG $handler: CONST Null type=kotlin.Any? value=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:50)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:43)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:422)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:439)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:164)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateFile(JvmIrCodegenFactory.kt:419)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:388)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler.runCodegen$cli(KotlinToJVMBytecodeCompiler.kt:432)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:95)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:36)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:29)
+	at org.jetbrains.kotlin.cli.pipeline.PipelinePhase.phaseBody(PipelinePhase.kt:68)
+	at org.jetbrains.kotlin.cli.pipeline.PipelinePhase.phaseBody(PipelinePhase.kt:58)
+	at org.jetbrains.kotlin.config.phaser.NamedCompilerPhase.invoke(CompilerPhase.kt:102)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:22)
+	at org.jetbrains.kotlin.config.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:53)
+	at org.jetbrains.kotlin.cli.pipeline.AbstractCliPipeline.runPhasedPipeline(AbstractCliPipeline.kt:109)
+	at org.jetbrains.kotlin.cli.pipeline.AbstractCliPipeline.execute(AbstractCliPipeline.kt:68)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecutePhased(K2JVMCompiler.kt:78)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecutePhased(K2JVMCompiler.kt:44)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:90)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.exec(CLICompiler.kt:352)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunnerBase.runCompiler(IncrementalJvmCompilerRunnerBase.kt:175)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunnerBase.runCompiler(IncrementalJvmCompilerRunnerBase.kt:38)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:504)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:421)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileNonIncrementally(IncrementalCompilerRunner.kt:306)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:133)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:679)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:93)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1806)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.jetbrains.kotlin.codegen.CompilationException: Back-end (JVM) Internal error: Couldn't inline method call: CALL 'public final fun <get-current> (): T of androidx.compose.runtime.CompositionLocal [inline] declared in androidx.compose.runtime.CompositionLocal' type=android.content.Context origin=GET_PROPERTY
+Method: null
+File is unknown
+The root cause java.lang.IllegalStateException was thrown at: org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.getMethodNode(SourceCompilerForInline.kt:129)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genInlineCall(IrInlineCodegen.kt:82)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCallGenerator.genCall(IrInlineCallGenerator.kt:36)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:586)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:135)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitVariable(ExpressionCodegen.kt:725)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitVariable(ExpressionCodegen.kt:135)
+	at org.jetbrains.kotlin.ir.declarations.IrVariable.accept(IrVariable.kt:36)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:527)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:532)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:135)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:233)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:126)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	... 45 more
+Caused by: java.lang.IllegalStateException: couldn't find inline method Landroidx/compose/runtime/CompositionLocal;.getCurrent()Ljava/lang/Object;
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.getMethodNode(SourceCompilerForInline.kt:129)
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.loadCompiledInlineFunction$lambda$2(SourceCompilerForInline.kt:98)
+	at org.jetbrains.kotlin.codegen.inline.InlineCache.computeMethodBytes(InlineCache.kt:90)
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.loadCompiledInlineFunction(SourceCompilerForInline.kt:93)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.compileInlineFunction(IrSourceCompilerForInline.kt:96)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genInlineCall(IrInlineCodegen.kt:65)
+	... 59 more
+
+

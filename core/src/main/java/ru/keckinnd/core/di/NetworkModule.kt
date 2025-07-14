@@ -16,15 +16,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    @Provides @Singleton
+    fun provideJson(): Json =
+        Json { ignoreUnknownKeys = true }
 
-    @Provides
-    @Singleton
-    fun provideJson(): Json = Json {
-        ignoreUnknownKeys = true
-    }
-
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideOkHttpClient(): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().apply {
@@ -32,17 +28,20 @@ object NetworkModule {
             })
             .build()
 
-    @Provides
-    @Singleton
-    fun provideRetrofit(json: Json, client: OkHttpClient): Retrofit =
-        Retrofit.Builder()
+    @Provides @Singleton
+    fun provideRetrofit(
+        json: Json,
+        okHttp: OkHttpClient
+    ): Retrofit {
+        val contentType = "application/json".toMediaType()
+        return Retrofit.Builder()
             .baseUrl("https://rickandmortyapi.com/api/")
-            .client(client)
-            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
+            .client(okHttp)
+            .addConverterFactory(json.asConverterFactory(contentType))
             .build()
+    }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideApi(retrofit: Retrofit): RickAndMortyApi =
         retrofit.create(RickAndMortyApi::class.java)
 }

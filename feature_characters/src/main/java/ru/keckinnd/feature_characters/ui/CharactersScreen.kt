@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package ru.keckinnd.feature_characters.ui
 
 import androidx.compose.foundation.layout.*
