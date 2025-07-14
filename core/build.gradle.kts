@@ -25,31 +25,32 @@ android {
 }
 
 dependencies {
-
     implementation(project(":domain"))
 
-    implementation(libs.okhttp)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.room.runtime)
-    ksp(libs.room.compiler)
-    implementation(libs.room.ktx)
     implementation(libs.androidx.core.ktx)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.room.compiler)
+
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
 
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.converter.kotlinx.serialization)
 
     implementation(libs.retrofit)
-    implementation(libs.converter.kotlinx.serialization)
-    implementation(libs.okhttp.logging)
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.javax.inject)
 
-    implementation(libs.androidx.material3.v121)
-    implementation(libs.androidx.ui.v161)
-    implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.tooling.preview)
 
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
+

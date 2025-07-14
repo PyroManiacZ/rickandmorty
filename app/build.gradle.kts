@@ -1,5 +1,3 @@
-
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -50,46 +48,56 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
+    // Compose BOM
+    implementation(platform(libs.androidx.compose.bom))
+
+    // Compose UI
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.material3)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // Hilt
     implementation(libs.hilt.android)
-    implementation(libs.androidx.material3.android)
-    implementation(libs.androidx.ui.tooling.preview.android)
-    implementation(libs.androidx.compose.navigation)
-    ksp(libs.hilt.compiler)
-    implementation(libs.navigation.compose)
-    implementation(libs.accompanist.placeholder.material)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.material)
     implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
+
+    // Lifecycle + Activity Compose
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.core.ktx)
+
+    // Paging
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.runtime.ktx)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    ksp(libs.room.compiler)
+
+    // Coil
     implementation(libs.coil.compose)
 
-    implementation (libs.androidx.core.ktx)
-    implementation (libs.androidx.lifecycle.runtime.ktx)
-    implementation (libs.androidx.activity.compose)
+    // Accompanist
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.placeholder.material)
 
-    implementation (platform(libs.androidx.compose.bom))
-    implementation (libs.androidx.ui)
-    implementation (libs.androidx.ui.graphics)
-    implementation (libs.androidx.ui.tooling.preview)
-    implementation (libs.androidx.material3)
-    implementation (libs.androidx.foundation)
-    implementation (libs.androidx.navigation.compose.v274)
+    // Networking
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.converter.kotlinx.serialization)
+    implementation(libs.kotlinx.serialization.json)
 
-    implementation (libs.androidx.paging.compose)
-    implementation (libs.androidx.paging.runtime.ktx)
+    // Test
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation (libs.retrofit)
-    implementation (libs.okhttp)
-    implementation (libs.converter.kotlinx.serialization)
-    implementation (libs.kotlinx.serialization.json)
-
-    implementation (libs.androidx.room.runtime.v260)
-    implementation (libs.androidx.room.ktx.v260)
-    implementation (libs.androidx.room.paging)
-
-    implementation (libs.androidx.hilt.navigation.compose.v110)
-
-    implementation (libs.coil.compose.v250)
-
-    implementation (libs.accompanist.swiperefresh)
-    implementation (libs.accompanist.systemuicontroller)
 }

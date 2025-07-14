@@ -1,7 +1,6 @@
 package ru.keckinnd.feature_characters.ui
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.outlined.DarkMode
@@ -20,10 +19,11 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import androidx.compose.material3.pullrefresh.PullRefreshIndicator
-import androidx.compose.material3.pullrefresh.pullRefresh
-import androidx.compose.material3.pullrefresh.rememberPullRefreshState
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.style.TextAlign
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import ru.keckinnd.domain.model.Character
 import kotlinx.coroutines.flow.distinctUntilChanged
 import ru.keckinnd.feature_characters.CharactersState
@@ -90,7 +90,7 @@ fun CharactersScreen(
                     CircularProgressIndicator(Modifier.align(Alignment.Center))
                 }
                 state.error != null -> {
-                    // Простая заглушка ErrorState
+                    // заглушка!! ErrorState
                     Column(
                         Modifier.align(Alignment.Center),
                         horizontalAlignment = Alignment.CenterHorizontally
@@ -130,55 +130,45 @@ private fun CharacterGrid(
     onCharacterClick: (Int) -> Unit,
     onRefresh: () -> Unit
 ) {
-    // 1. Создаём state для pullRefresh
-    val pullRefreshState = rememberPullRefreshState(
-        refreshing = state.isRefreshing,
-        onRefresh = onRefresh
-    )
+    val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isRefreshing)
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            // 2. Привязываем pullRefresh к Box
-            .pullRefresh(pullRefreshState)
+    SwipeRefresh(
+        state = swipeRefreshState,
+        onRefresh = onRefresh
     ) {
-        // 3. Ваш LazyVerticalGrid как раньше
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            state = gridState,
-            contentPadding = PaddingValues(8.dp),
-            verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(8.dp),
-            horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(8.dp),
-            modifier = Modifier.fillMaxSize()
-        ) {
-            items(items) { char ->
-                CharacterCard(character = char, onClick = { onCharacterClick(char.id) })
-            }
-            if (state.isLoadingMore || state.endReached) {
-                item(span = { LazyGridItemSpan(maxLineSpan) }) {
-                    if (state.isLoadingMore) {
-                        CircularProgressIndicator(
-                            Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp)
-                        )
-                    } else {
-                        Text(
-                            "Больше нет персонажей",
+        Box(modifier = Modifier.fillMaxSize()) {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                state = gridState,
+                contentPadding = PaddingValues(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxSize()
+            ) {
+                items(items) { char ->
+                    CharacterCard(character = char, onClick = { onCharacterClick(char.id) })
+                }
+
+                if (state.isLoadingMore || state.endReached) {
+                    item(span = { GridItemSpan(maxLineSpan) }) {
+                        Column(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(16.dp),
-                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
-                        )
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            if (state.isLoadingMore) {
+                                CircularProgressIndicator()
+                            } else {
+                                Text(
+                                    text = "Больше нет персонажей",
+                                    textAlign = TextAlign.Center
+                                )
+                            }
+                        }
                     }
                 }
             }
         }
-
-        PullRefreshIndicator(
-            refreshing = state.isRefreshing,
-            state = pullRefreshState,
-            modifier = Modifier.align(Alignment.TopCenter)
-        )
     }
 }

@@ -2,7 +2,7 @@ package ru.keckinnd.core.ui
 
 import androidx.compose.ui.graphics.Color
 
-// --- Light Palette ---
+// Light
 val PrimaryLight            = Color(0xFF006D3B)
 val SecondaryLight          = Color(0xFF4A6572)
 val TertiaryLight           = Color(0xFF7C4DFF)
@@ -20,7 +20,7 @@ val GenderMaleLight         = Color(0xFF1976D2)
 val GenderFemaleLight       = Color(0xFFC2185B)
 val GenderUnknownLight      = Color(0xFF9C27B0)
 
-// --- Dark Palette ---
+// Dark
 val PrimaryDark             = Color(0xFF4CAF50)
 val SecondaryDark           = Color(0xFF81C784)
 val TertiaryDark            = Color(0xFF9575CD)

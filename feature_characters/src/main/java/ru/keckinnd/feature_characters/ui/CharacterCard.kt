@@ -11,8 +11,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import ru.keckinnd.data.ui.genderColor
-import ru.keckinnd.data.ui.statusColor
+import ru.keckinnd.core.ui.genderColor
+import ru.keckinnd.core.ui.statusColor
 import ru.keckinnd.domain.model.Character
 
 @Composable

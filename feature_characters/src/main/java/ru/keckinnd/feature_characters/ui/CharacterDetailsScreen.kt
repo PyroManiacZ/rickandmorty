@@ -13,8 +13,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
-import ru.keckinnd.data.ui.genderColor
-import ru.keckinnd.data.ui.statusColor
+import ru.keckinnd.core.ui.genderColor
+import ru.keckinnd.core.ui.statusColor
 import ru.keckinnd.domain.model.Character
 import ru.keckinnd.feature_characters.CharacterDetailsViewModel
 

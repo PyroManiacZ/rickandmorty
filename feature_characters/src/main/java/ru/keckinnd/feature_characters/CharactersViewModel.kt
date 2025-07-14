@@ -1,6 +1,5 @@
 package ru.keckinnd.feature_characters
 
-import android.R.attr.id
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,10 +21,10 @@ class CharactersViewModel @Inject constructor(
     private var currentFilters = CharacterFilters()
 
     init {
-        loadCharacters(id)
+        loadCharacters()
     }
 
-    fun loadCharacters(id: Int) {
+    fun loadCharacters() {
         _state.update { it.copy(isLoading = true, error = null) }
         viewModelScope.launch {
             try {
@@ -36,7 +35,7 @@ class CharactersViewModel @Inject constructor(
                 )
                 _state.update {
                     it.copy(
-                        items = it.items + list,
+                        items = if (currentPage == 1) list else it.items + list,
                         endReached = list.isEmpty(),
                         isLoading = false,
                         isLoadingMore = false,
@@ -58,9 +57,9 @@ class CharactersViewModel @Inject constructor(
 
     fun loadNextPage() {
         if (_state.value.isLoadingMore || _state.value.endReached) return
-        _state.update { it.copy(isLoadingMore = true) }
         currentPage++
-        loadCharacters(id)
+        _state.update { it.copy(isLoadingMore = true) }
+        loadCharacters()
     }
 
     fun refresh() {
@@ -72,15 +71,7 @@ class CharactersViewModel @Inject constructor(
                 isRefreshing = true
             )
         }
-        loadCharacters(id)
-    }
-
-    fun onSearch(query: String) {
-        _state.update { it.copy(query = query) }
-    }
-
-    fun search() {
-        refresh()
+        loadCharacters()
     }
 
     fun onFiltersChanged(filters: CharacterFilters) {
@@ -88,8 +79,11 @@ class CharactersViewModel @Inject constructor(
         refresh()
     }
 
+    fun getCurrentFilters(): CharacterFilters = currentFilters
+
     fun retry() {
-        if (_state.value.items.isEmpty()) loadCharacters(id)
+        if (_state.value.items.isEmpty()) loadCharacters()
         else loadNextPage()
     }
+
 }
