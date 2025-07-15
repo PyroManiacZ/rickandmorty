@@ -92,4 +92,10 @@ dependencies {
     // Material Icons
     implementation(libs.androidx.icons.material.core)
     implementation(libs.androidx.icons.material.extended)
+
+    // Test
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
 }

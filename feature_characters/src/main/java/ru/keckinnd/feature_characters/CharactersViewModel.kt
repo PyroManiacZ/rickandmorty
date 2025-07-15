@@ -85,5 +85,4 @@ class CharactersViewModel @Inject constructor(
         if (_state.value.items.isEmpty()) loadCharacters()
         else loadNextPage()
     }
-
 }

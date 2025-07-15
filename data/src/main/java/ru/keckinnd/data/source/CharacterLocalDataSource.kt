@@ -18,9 +18,9 @@ class CharacterLocalDataSource @Inject constructor(
         query: String?,
         filters: CharacterFilters
     ): List<Character> {
-        val status  = filters.status ?: ""
-        val species = filters.species ?: ""
-        val gender  = filters.gender ?: ""
+        val status  = filters.status
+        val species = filters.species
+        val gender  = filters.gender
         return characterDao.search(query, status, species, gender)
             .map { it.toDomain() }
     }

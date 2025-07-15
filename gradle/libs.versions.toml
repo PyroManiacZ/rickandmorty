@@ -1,5 +1,4 @@
 [versions]
-converterKotlinxSerialization = "0.10.0"
 kotlin = "2.2.0"
 ksp = "2.2.0-2.0.2"
 agp = "8.11.1"
@@ -91,3 +90,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
