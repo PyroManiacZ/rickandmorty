@@ -2,8 +2,10 @@
 
 package ru.keckinnd.feature_characters.ui
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.outlined.DarkMode
 import androidx.compose.material.icons.outlined.LightMode
@@ -11,27 +13,21 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.LazyGridState
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import androidx.compose.foundation.lazy.grid.GridItemSpan
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import ru.keckinnd.domain.model.Character
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
+import ru.keckinnd.domain.model.Character
 import ru.keckinnd.feature_characters.CharactersState
 import ru.keckinnd.feature_characters.CharactersViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, FlowPreview::class)
 @Composable
 fun CharactersScreen(
     darkTheme: Boolean,
@@ -42,6 +38,10 @@ fun CharactersScreen(
 ) {
     val state by viewModel.state.collectAsState()
     val gridState = rememberLazyGridState()
+
+    LaunchedEffect(state.items) {
+        Log.d("UIDebug", "UI received ${state.items.size} items, filters=${viewModel.getCurrentFilters()}")
+    }
 
     // Пагинация по скроллу
     LaunchedEffect(gridState) {
@@ -87,37 +87,72 @@ fun CharactersScreen(
                 .fillMaxSize()
                 .padding(padding)
         ) {
-            when {
-                state.isLoading && state.items.isEmpty() -> {
-                    CircularProgressIndicator(Modifier.align(Alignment.Center))
-                }
-                state.error != null -> {
-                    // заглушка!! ErrorState
-                    Column(
-                        Modifier.align(Alignment.Center),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text("Ошибка: ${state.error}")
-                        Spacer(Modifier.height(8.dp))
-                        Button(onClick = { viewModel.retry() }) {
-                            Text("Повторить")
+            var query by remember { mutableStateOf(state.query) }
+
+            LaunchedEffect(query) {
+                snapshotFlow { query }
+                    .debounce(300)
+                    .distinctUntilChanged()
+                    .collect { viewModel.onQueryChanged(it) }
+            }
+
+            Column(modifier = Modifier.fillMaxSize()) {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    placeholder = { Text("Поиск по имени") },
+                    singleLine = true,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    shape = RoundedCornerShape(12.dp),
+                    trailingIcon = {
+                        if (query.isNotEmpty()) {
+                            IconButton(onClick = { query = "" }) {
+                                Icon(Icons.Default.Clear, contentDescription = "Очистить")
+                            }
                         }
                     }
-                }
-                state.items.isEmpty() -> {
-                    Text(
-                        text = "Ничего не найдено",
-                        modifier = Modifier.align(Alignment.Center)
-                    )
-                }
-                else -> {
-                    CharacterGrid(
-                        items = state.items,
-                        state = state,
-                        gridState = gridState,
-                        onCharacterClick = onCharacterClick,
-                        onRefresh = viewModel::refresh
-                    )
+                )
+
+                // UI состояния
+                when {
+                    state.isLoading && state.items.isEmpty() -> {
+                        Box(modifier = Modifier.fillMaxSize()) {
+                            CircularProgressIndicator(Modifier.align(Alignment.Center))
+                        }
+                    }
+                    state.error != null -> {
+                        Column(
+                            Modifier
+                                .fillMaxSize()
+                                .padding(top = 32.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text("Ошибка: ${state.error}")
+                            Spacer(Modifier.height(8.dp))
+                            Button(onClick = { viewModel.retry() }) {
+                                Text("Повторить")
+                            }
+                        }
+                    }
+                    state.items.isEmpty() -> {
+                        Box(modifier = Modifier.fillMaxSize()) {
+                            Text(
+                                text = "Ничего не найдено",
+                                modifier = Modifier.align(Alignment.Center)
+                            )
+                        }
+                    }
+                    else -> {
+                        CharacterGrid(
+                            items = state.items,
+                            state = state,
+                            gridState = gridState,
+                            onCharacterClick = onCharacterClick,
+                            onRefresh = viewModel::refresh
+                        )
+                    }
                 }
             }
         }
@@ -138,35 +173,33 @@ private fun CharacterGrid(
         state = swipeRefreshState,
         onRefresh = onRefresh
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                state = gridState,
-                contentPadding = PaddingValues(8.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.fillMaxSize()
-            ) {
-                items(items) { char ->
-                    CharacterCard(character = char, onClick = { onCharacterClick(char.id) })
-                }
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            state = gridState,
+            contentPadding = PaddingValues(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.fillMaxSize()
+        ) {
+            items(items) { char ->
+                CharacterCard(character = char, onClick = { onCharacterClick(char.id) })
+            }
 
-                if (state.isLoadingMore || state.endReached) {
-                    item(span = { GridItemSpan(maxLineSpan) }) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            if (state.isLoadingMore) {
-                                CircularProgressIndicator()
-                            } else {
-                                Text(
-                                    text = "Больше нет персонажей",
-                                    textAlign = TextAlign.Center
-                                )
-                            }
+            if (state.isLoadingMore || state.endReached) {
+                item(span = { GridItemSpan(maxLineSpan) }) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        if (state.isLoadingMore) {
+                            CircularProgressIndicator()
+                        } else {
+                            Text(
+                                text = "Больше нет персонажей",
+                                textAlign = TextAlign.Center
+                            )
                         }
                     }
                 }

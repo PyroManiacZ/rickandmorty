@@ -49,54 +49,43 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
-    // Compose BOM
     implementation(platform(libs.androidx.compose.bom))
 
-    // Compose UI
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.material3)
 
-    // Navigation
     implementation(libs.androidx.navigation.compose)
 
-    // Hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
-    // Lifecycle + Activity Compose
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
 
-    // Paging
     implementation(libs.androidx.paging.compose)
     implementation(libs.androidx.paging.runtime.ktx)
 
-    // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.paging)
     ksp(libs.room.compiler)
 
-    // Coil
     implementation(libs.coil.compose)
 
-    // Accompanist
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.placeholder.material)
 
-    // Networking
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
     implementation(libs.converter.kotlinx.serialization)
     implementation(libs.kotlinx.serialization.json)
 
-    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

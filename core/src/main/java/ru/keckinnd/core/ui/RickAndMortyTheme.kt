@@ -65,7 +65,6 @@ fun statusColor(status: Status): Color = when (status) {
     Status.Unknown -> if (isSystemInDarkTheme()) StatusUnknownDark else StatusUnknownLight
 }
 
-
 @Composable
 fun genderColor(gender: Gender): Color = when (gender) {
     Gender.Male     -> if (isSystemInDarkTheme()) GenderMaleDark else GenderMaleLight

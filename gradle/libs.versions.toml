@@ -43,7 +43,6 @@ androidx-material3 = { module = "androidx.compose.material3:material3", version.
 androidx-icons-material-core = { group = "androidx.compose.material", name = "material-icons-core" }
 androidx-icons-material-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 
-
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
@@ -79,8 +78,6 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 ui = { module = "androidx.compose.ui:ui" }
-
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

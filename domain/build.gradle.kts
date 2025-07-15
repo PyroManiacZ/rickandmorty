@@ -24,10 +24,8 @@ android {
 }
 
 dependencies {
-    // Core Android and KotlinX
     implementation(libs.androidx.core.ktx)
 
-    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
