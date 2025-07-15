@@ -17,7 +17,7 @@ fun CharacterEntity.toDomain(): Character =
         origin  = Location(originName, originUrl),
         location= Location(locationName, locationUrl),
         image   = image,
-        episode = emptyList()  // если эпизоды не сохраняете в БД
+        episode = emptyList()
     )
 
 fun Character.toEntity(): CharacterEntity =
